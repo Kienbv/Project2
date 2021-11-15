@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: page_head('Thông tin tài khoản của bạn:')"/>
+<head th:replace="fragments :: page_head('Your Account Details')"/>
 <body>
 <div class="container-fluid">
 	<div th:replace="navigation :: menu"></div>
@@ -44,9 +44,9 @@
 			<label class="col-sm-4 col-form-label">Password:</label>
 			<div class="col-sm-8">
                 <input type="password" th:field="*{password}" class="form-control"
-                       placeholder="leave blank if you don't want to change password"
-                       minlength="8" maxlength="20"
-                       oninput="checkPasswordMatch(document.getElementById('Nhập lại mật khẩu'))"
+					   placeholder="Để trống nếu bạn không muốn cập nhật mật khẩu"
+					   minlength="8" maxlength="20"
+					   oninput="checkPasswordMatch(document.getElementById('Nhập lại mật khẩu'))"
                 />
 			</div>
 		</div>

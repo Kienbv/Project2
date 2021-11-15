@@ -73,14 +73,14 @@ public class UserController {
 	@GetMapping("/users/new")
 	public String newUser(Model model) {
 		List<Role> listRoles = service.listRoles();
-		
+
 		User user = new User();
 		user.setEnabled(true);
-		
+
 		model.addAttribute("user", user);
 		model.addAttribute("listRoles", listRoles);
-		model.addAttribute("pageTitle", "Create New User");
-		
+		model.addAttribute("pageTitle", "Tạo tài khoản ");
+
 		return "users/user_form";
 	}
 	
@@ -94,18 +94,18 @@ public class UserController {
 			User savedUser = service.save(user);
 			
 			String uploadDir = "user-photos/" + savedUser.getId();
-			
+
 			FileUploadUtil.cleanDir(uploadDir);
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-			
+
 		} else {
 			if (user.getPhotos().isEmpty()) user.setPhotos(null);
 			service.save(user);
 		}
-		
-		
-		redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
-		
+
+
+		redirectAttributes.addFlashAttribute("message", "Tài khoản đã được cập nhật thành công.");
+
 		return getRedirectURLtoAffectedUser(user);
 	}
 
@@ -121,11 +121,11 @@ public class UserController {
 		try {
 			User user = service.get(id);
 			List<Role> listRoles = service.listRoles();
-			
+
 			model.addAttribute("user", user);
-			model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
+			model.addAttribute("pageTitle", "Cập nhật tài khoản (ID: " + id + ")");
 			model.addAttribute("listRoles", listRoles);
-			
+
 			return "users/user_form";
 		} catch (UserNotFoundException ex) {
 			redirectAttributes.addFlashAttribute("message", ex.getMessage());
@@ -139,8 +139,8 @@ public class UserController {
 			RedirectAttributes redirectAttributes) {
 		try {
 			service.delete(id);;
-			redirectAttributes.addFlashAttribute("message", 
-					"The user ID " + id + " has been deleted successfully");
+			redirectAttributes.addFlashAttribute("message",
+					"Tài khoản có ID " + id + " đã được xoá thành công");
 		} catch (UserNotFoundException ex) {
 			redirectAttributes.addFlashAttribute("message", ex.getMessage());
 		}
@@ -153,9 +153,9 @@ public class UserController {
 			@PathVariable("status") boolean enabled, RedirectAttributes redirectAttributes) {
 		service.updateUserEnabledStatus(id, enabled);
 		String status = enabled ? "enabled" : "disabled";
-		String message = "The user ID " + id + " has been " + status;
+		String message = "Tài khoản có ID " + id + " đã được cập nhật trạng thái: " + status;
 		redirectAttributes.addFlashAttribute("message", message);
-		
+
 		return "redirect:/users";
 	}
 

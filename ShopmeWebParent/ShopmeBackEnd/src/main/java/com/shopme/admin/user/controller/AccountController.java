@@ -1,7 +1,9 @@
 package com.shopme.admin.user.controller;
 
-import java.io.IOException;
-
+import com.shopme.admin.FileUploadUtil;
+import com.shopme.admin.security.ShopmeUserDetails;
+import com.shopme.admin.user.UserService;
+import com.shopme.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -13,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.shopme.admin.FileUploadUtil;
-import com.shopme.admin.security.ShopmeUserDetails;
-import com.shopme.admin.user.UserService;
-import com.shopme.common.entity.User;
+import java.io.IOException;
 
 @Controller
 public class AccountController {
@@ -49,17 +48,17 @@ public class AccountController {
 			
 			FileUploadUtil.cleanDir(uploadDir);
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-			
+
 		} else {
 			if (user.getPhotos().isEmpty()) user.setPhotos(null);
 			service.updateAccount(user);
 		}
-		
+
 		loggedUser.setFirstName(user.getFirstName());
 		loggedUser.setLastName(user.getLastName());
-		
-		redirectAttributes.addFlashAttribute("message", "Your account details have been updated.");
-		
+
+		redirectAttributes.addFlashAttribute("message", "Tài khoản của bạn đã được cập nhật.");
+
 		return "redirect:/account";
 	}	
 }
