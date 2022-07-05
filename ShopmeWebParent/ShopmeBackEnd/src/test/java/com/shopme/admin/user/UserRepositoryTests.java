@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
@@ -30,24 +31,27 @@ public class UserRepositoryTests {
 	@Test
 	public void testCreateNewUserWithOneRole() {
         Role roleAdmin = entityManager.find(Role.class, 1);
-        User userNamHM = new User("cde@gmail.com", "11111111", "cde", "cde");
-        userNamHM.addRole(roleAdmin);
+        User userKienbv = new User("kienbv@gmail.com", "kienbv2022", "kien", "bv");
+//        User userKienbv = new User("cuongnh@gmail.com", "cuongnh2022", "cuong", "nguyen huu");
+//        User userKienbv = new User("kientt@gmail.com", "kientt2022", "kien", "ta trung");
+        userKienbv.addRole(roleAdmin);
 
-        User savedUser = repo.save(userNamHM);
+        User savedUser = repo.save(userKienbv);
 
         assertThat(savedUser.getId()).isGreaterThan(0);
     }
-	
-	@Test
+
+
+    @Test
 	public void testCreateNewUserWithTwoRoles() {
-        User userRavi = new User("lamhs@gmail.com", "22222222", "lam", "hoang son");
+        User userLamhs = new User("lamhs@gmail.com", "lamhs2022", "lam", "hoang son");
         Role roleEditor = new Role(3);
         Role roleAssistant = new Role(5);
 
-        userRavi.addRole(roleEditor);
-        userRavi.addRole(roleAssistant);
+        userLamhs.addRole(roleEditor);
+        userLamhs.addRole(roleAssistant);
 
-        User savedUser = repo.save(userRavi);
+        User savedUser = repo.save(userLamhs);
 
         assertThat(savedUser.getId()).isGreaterThan(0);
     }
@@ -60,18 +64,22 @@ public class UserRepositoryTests {
 	
 	@Test
 	public void testGetUserById() {
-		User userNam = repo.findById(1).get();
-		System.out.println(userNam);
-		assertThat(userNam).isNotNull();
-	}
+        User userKienbv = repo.findById(1).get();
+        System.out.println(userKienbv);
+        assertThat(userKienbv).isNotNull();
+    }
 	
 	@Test
 	public void testUpdateUserDetails() {
-        User userNam = repo.findById(1).get();
-        userNam.setEnabled(true);
-        userNam.setEmail("abc@gmail.com");
+        User userKienbv = repo.findById(1).get();
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String rawPassword = "kienbv2022";
+        String encodedPassword = passwordEncoder.encode(rawPassword);
+        userKienbv.setEnabled(true);
+        userKienbv.setLastName("bui van");
+        userKienbv.setPassword(encodedPassword);
 
-        repo.save(userNam);
+        repo.save(userKienbv);
     }
 	
 	@Test
@@ -140,7 +148,7 @@ public class UserRepositoryTests {
 	
 	@Test
 	public void testSearchUsers() {
-        String keyword = "cde";
+        String keyword = "bv";
 
         int pageNumber = 0;
         int pageSize = 4;
