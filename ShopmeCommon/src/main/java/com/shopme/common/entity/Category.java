@@ -84,4 +84,24 @@ public class Category {
     public void setChildren(Set<Category> children) {
         this.children = children;
     }
+
+    public Category(String name) {
+        this.name = name;
+        this.alias = name;
+        this.image = "default.png";
+    }
+
+    public Category(String name, Category parent) {
+        this.name = name;
+        this.alias = name;
+        this.image = "default.png";
+        this.parent = parent;
+    }
+
+    public Category(Integer id) {
+        this.id = id;
+    }
+
+    public Category() {
+    }
 }
