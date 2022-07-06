@@ -104,4 +104,20 @@ public class Category {
 
     public Category() {
     }
+
+    public static Category copyIdAndName(Category category) {
+        Category categoryNew = new Category();
+        categoryNew.setId(category.getId());
+        categoryNew.setName(category.getName());
+
+        return categoryNew;
+    }
+
+    public static Category copyIdAndName(Integer id, String name) {
+        Category categoryNew = new Category();
+        categoryNew.setId(id);
+        categoryNew.setName(name);
+
+        return categoryNew;
+    }
 }
