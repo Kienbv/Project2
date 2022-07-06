@@ -113,11 +113,37 @@ public class Category {
         return categoryNew;
     }
 
+    public static Category copyFull(Category category) {
+        Category copyCategory = new Category();
+
+        copyCategory.setId(category.getId());
+        copyCategory.setName(category.getName());
+        copyCategory.setImage(category.getImage());
+        copyCategory.setAlias(category.getAlias());
+        copyCategory.setChildren(category.getChildren());
+        copyCategory.setEnabled(category.isEnabled());
+
+        return copyCategory;
+    }
+
+    public static Category copyFull(Category category, String name) {
+        Category copyCategory = Category.copyFull(category);
+        copyCategory.setName(name);
+        return copyCategory;
+    }
+
     public static Category copyIdAndName(Integer id, String name) {
         Category categoryNew = new Category();
         categoryNew.setId(id);
         categoryNew.setName(name);
 
         return categoryNew;
+    }
+
+    @Transient
+    public String getImagePath() {
+        if (this.id == null) return "/images/image-thumbnail.png";
+
+        return "/category-images/" + this.id + "/" + this.image;
     }
 }
