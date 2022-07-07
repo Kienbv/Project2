@@ -12,7 +12,7 @@ import java.util.*;
 
 @Service
 public class CategoryService {
-    public static final int ROOT_CATEGORIES_PER_PAGE = 4;
+    public static final int ROOT_CATEGORIES_PER_PAGE = 1;
     @Autowired
     private CategoryRepository repo;
 

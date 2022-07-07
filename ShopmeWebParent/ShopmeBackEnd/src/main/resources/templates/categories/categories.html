@@ -71,7 +71,7 @@
 		<div th:replace="fragments :: pagination('/categories', 'categories')"></div>
 	</div>
 
-	<th:block th:unless="${keyword != null}">
+	<th:block th:unless="${keyword != null}"></th:block>
 		<div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
 </div>
 
