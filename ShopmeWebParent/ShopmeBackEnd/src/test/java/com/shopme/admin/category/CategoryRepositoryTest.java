@@ -94,4 +94,23 @@ public class CategoryRepositoryTest {
         List<Category> rootCategories = repo.findRootCategories();
         rootCategories.forEach(category -> System.out.println(category.getName()));
     }
+
+    @Test
+    public void testFindByName() {
+        String name = "Rau củ quả";
+        Category category = repo.findByName(name);
+
+        Assertions.assertThat(category).isNotNull();
+        Assertions.assertThat(category.getName()).isEqualTo(name);
+    }
+
+
+    @Test
+    public void testFindByAlias() {
+        String alias = "Rau củ quả";
+        Category category = repo.findByAlias(alias);
+
+        Assertions.assertThat(category).isNotNull();
+        Assertions.assertThat(category.getAlias()).isEqualTo(alias);
+    }
 }
