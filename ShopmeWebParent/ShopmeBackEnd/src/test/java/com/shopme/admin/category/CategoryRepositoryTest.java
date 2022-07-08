@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -42,7 +43,7 @@ public class CategoryRepositoryTest {
         Category nemThit = new Category("Gia vị lẩu", parent);
         Category khoaiChien = new Category("Gia vị tẩm ướp", parent);
         Category xucxich = new Category("Gia vị khác", parent);
-        repo.saveAll(List.of(nemThit, khoaiChien, xucxich));
+        repo.saveAll(Arrays.asList(nemThit, khoaiChien, xucxich));
 
     }
 

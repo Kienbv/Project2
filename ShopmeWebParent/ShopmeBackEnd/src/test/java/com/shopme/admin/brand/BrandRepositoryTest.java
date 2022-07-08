@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
-import java.util.List;
+import java.util.Arrays;
 
 @DataJpaTest(showSql = false) //  showSql= false -> No want show sql on console log
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -36,7 +36,7 @@ public class BrandRepositoryTest {
         Category sanPhamLon = new Category(4);
         Category xucXich = new Category(7);
         Brand brand = new Brand("CP");
-        brand.getCategories().addAll(List.of(sanPhamLon, xucXich));
+        brand.getCategories().addAll(Arrays.asList(sanPhamLon, xucXich));
 
         Brand savedBrand = repo.save(brand);
 

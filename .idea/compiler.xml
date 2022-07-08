@@ -2,6 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -13,10 +14,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="KienbvShopProject2" target="1.5" />
-      <module name="ShopmeBackEnd" target="15" />
+      <module name="ShopmeBackEnd" target="1.8" />
       <module name="ShopmeCommon" target="15" />
-      <module name="ShopmeFrontEnd" target="15" />
-      <module name="ShopmeWebParent" target="15" />
+      <module name="ShopmeFrontEnd" target="1.8" />
+      <module name="ShopmeWebParent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
