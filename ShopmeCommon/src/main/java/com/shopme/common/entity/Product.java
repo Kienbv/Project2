@@ -19,7 +19,7 @@ public class Product {
 	@Column(length = 512, nullable = false, name = "short_description")
 	private String shortDescription;
 
-	@Column(length = 4096, nullable = false, name = "full_description")
+	@Column(length = 8192, nullable = false, name = "full_description")
 	private String fullDescription;
 
 	@Column(name = "created_time")
