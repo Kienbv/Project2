@@ -25,4 +25,9 @@ public class MainController {
 
 		return "index";
 	}
+
+	@GetMapping("/about")
+	public String viewAbout() {
+		return "gioithieuTBFood";
+	}
 }
