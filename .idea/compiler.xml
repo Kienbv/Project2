@@ -16,8 +16,8 @@
       <module name="KienbvShopProject2" target="1.5" />
       <module name="ShopmeBackEnd" target="1.8" />
       <module name="ShopmeCommon" target="15" />
-      <module name="ShopmeFrontEnd" target="1.8" />
-      <module name="ShopmeWebParent" target="1.8" />
+      <module name="ShopmeFrontEnd" target="15" />
+      <module name="ShopmeWebParent" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

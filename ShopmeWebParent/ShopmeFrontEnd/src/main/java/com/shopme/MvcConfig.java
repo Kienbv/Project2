@@ -1,5 +1,6 @@
-package com.shopme.site;
+package com.shopme;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -8,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Configuration
+@ComponentScan(basePackages = {"com.shopme"})
 public class MvcConfig implements WebMvcConfigurer {
 
 	@Override
@@ -24,7 +26,8 @@ public class MvcConfig implements WebMvcConfigurer {
 		String logicalPath = pathPattern.replace("../", "") + "/**";
 
 		registry.addResourceHandler(logicalPath)
-				.addResourceLocations("file:/" + absolutePath + "/"); // MacOs  not file:/
+				.addResourceLocations("file:" + absolutePath + "/"); // MacOs  not file:/
+
 	}
 
 }

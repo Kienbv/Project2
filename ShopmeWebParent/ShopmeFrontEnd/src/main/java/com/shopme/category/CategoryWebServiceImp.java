@@ -1,4 +1,4 @@
-package com.shopme.site.category;
+package com.shopme.category;
 
 import com.shopme.common.entity.Category;
 import com.shopme.common.exception.CategoryNotFoundException;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Service
-public class CategoryWebServiceImp implements CategoryWebSevice {
+public class CategoryWebServiceImp {
 
     @Autowired(required = true)
     private CategoryWebRepository categoryRepository;

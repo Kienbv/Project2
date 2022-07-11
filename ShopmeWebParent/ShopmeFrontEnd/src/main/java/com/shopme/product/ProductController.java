@@ -1,11 +1,11 @@
-package com.shopme.site.product;
+package com.shopme.product;
 
 
+import com.shopme.category.CategoryWebServiceImp;
 import com.shopme.common.entity.Category;
 import com.shopme.common.entity.Product;
 import com.shopme.common.exception.CategoryNotFoundException;
 import com.shopme.common.exception.ProductNotFoundException;
-import com.shopme.site.category.CategoryWebServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.domain.Page;
@@ -20,7 +20,7 @@ import java.util.List;
 
 @Controller
 @EntityScan("com.shopme.common.entity")
-@EnableJpaRepositories("com.shopme.site.product")
+@EnableJpaRepositories("com.shopme.product")
 public class ProductController {
 	@Autowired
 	private ProductService productService;

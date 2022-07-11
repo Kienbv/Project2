@@ -1,7 +1,7 @@
-package com.shopme.site;
+package com.shopme;
 
+import com.shopme.category.CategoryWebServiceImp;
 import com.shopme.common.entity.Category;
-import com.shopme.site.category.CategoryWebServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-@EnableJpaRepositories(basePackages = "com.shopme.site.category")
+@EnableJpaRepositories(basePackages = "com.shopme.category")
 @EntityScan("com.shopme.common.entity")
 public class MainController {
 	@Autowired

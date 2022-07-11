@@ -1,4 +1,4 @@
-package com.shopme.site.category;
+package com.shopme.category;
 
 import com.shopme.common.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
