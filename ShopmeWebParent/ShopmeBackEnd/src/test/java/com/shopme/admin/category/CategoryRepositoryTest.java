@@ -9,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Set;
 
 @DataJpaTest(showSql = false) //  showSql= false -> No want show sql on console log
@@ -90,11 +89,6 @@ public class CategoryRepositoryTest {
         }
     }
 
-    @Test
-    public void testListRootCategories() {
-        List<Category> rootCategories = repo.findRootCategories();
-        rootCategories.forEach(category -> System.out.println(category.getName()));
-    }
 
     @Test
     public void testFindByName() {
