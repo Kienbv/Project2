@@ -30,4 +30,9 @@ public class MainController {
 	public String viewAbout() {
 		return "gioithieuTBFood";
 	}
+
+	@GetMapping("/he-thong-cua-hang")
+	public String viewShopLocations() {
+		return "shopLocations";
+	}
 }
